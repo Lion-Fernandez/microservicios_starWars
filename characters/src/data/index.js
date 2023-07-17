@@ -7,5 +7,10 @@ module.exports = {
         const result = await axios.get("http://database:8004/Character")
         return result.data
     },
-    create: async () => { throw Error("Ocurrio un error al crear el personaje") },
+    getById: async (id) => {
+        return await axios.get(`http://database:8004/film/${id}`)
+    },
+    create: async (obj) => { 
+        return await axios.post("http://database:8004/Character", obj)
+    }
 } 
